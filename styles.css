@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #222;
+    background: #fff;
+  }
+  
+  header {
+    text-align: center;
+    padding: 4rem 1rem 2rem;
+    background: #f9f9f9;
+    border-bottom: 1px solid #eee;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  header p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .project {
+    margin-bottom: 1.5rem;
+  }
+  
+  .project h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1.2rem;
+    color: #0066cc;
+  }
+  
+  .project p {
+    margin: 0;
+    color: #444;
+  }
+  
+  #contact a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  #contact a:hover {
+    text-decoration: underline;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #f9f9f9;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
