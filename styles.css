@@ -1,72 +1,186 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     line-height: 1.6;
     margin: 0;
-    padding: 0;
-    color: #222;
-    background: #fff;
+    padding: 2rem 1rem;
+    color: #d1fbd1;
+    background: #0b0f10;
+  }
+  
+  .terminal-window {
+    max-width: 960px;
+    margin: 0 auto;
+    border: 1px solid #1f2a2e;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    overflow: hidden;
+    background: #0d1416;
+  }
+  
+  .terminal-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: #0f1a1d;
+    border-bottom: 1px solid #1f2a2e;
+  }
+  
+  .terminal-title {
+    margin-left: auto;
+    color: #7aa2b2;
+    font-size: 0.9rem;
+  }
+  
+  .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #243136;
+    border: 1px solid #1f2a2e;
+  }
+  
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+  
+  .terminal-body {
+    padding: 2rem 2rem 1.5rem;
+  }
+  
+  /* Appear/reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 600ms ease, transform 600ms ease;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   header {
-    text-align: center;
-    padding: 4rem 1rem 2rem;
-    background: #f9f9f9;
-    border-bottom: 1px solid #eee;
+    text-align: left;
+    padding: 0 0 1.5rem;
+    background: transparent;
+    border-bottom: 1px solid #1f2a2e;
   }
   
   header h1 {
-    margin: 0;
-    font-size: 2.5rem;
+    margin: 0 0 0.4rem;
+    font-size: 2rem;
+    color: #e6f5e6;
   }
   
   header p {
-    font-size: 1.1rem;
-    color: #555;
+    font-size: 1rem;
+    color: #96d1a8;
+    margin: 0;
   }
   
   main {
     max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
   }
   
   h2 {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 0.3rem;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    border-bottom: 1px solid #1f2a2e;
+    padding-bottom: 0.25rem;
+    margin: 1.5rem 0 0.75rem;
+    font-size: 1.2rem;
+    color: #9ee493;
   }
   
   .project {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
   
   .project h3 {
-    margin: 0 0 0.3rem;
-    font-size: 1.2rem;
-    color: #0066cc;
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+  }
+  
+  .project h3 a {
+    color: #7be67b;
+    text-decoration: none;
+    position: relative;
+    transition: color 160ms ease;
+  }
+  
+  .project h3 a:hover {
+    color: #b2f5b2;
+  }
+  
+  /* Make project cards obviously clickable */
+  .project {
+    padding: 0.75rem 0.75rem 0.75rem 0.85rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: border-color 160ms ease, background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+  }
+  .project:hover {
+    border-color: #234a2e;
+    background: rgba(22, 32, 28, 0.6);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  }
+  .project:focus-within {
+    border-color: #2d6a3f;
+    box-shadow: 0 0 0 3px rgba(45,106,63,0.35);
   }
   
   .project p {
     margin: 0;
-    color: #444;
+    color: #c1f0c7;
   }
   
   #contact a {
-    color: #0066cc;
+    color: #7be67b;
     text-decoration: none;
+    outline: none;
+    border-bottom: 1px dashed rgba(123, 230, 123, 0.35);
+    transition: color 160ms ease, border-color 160ms ease;
   }
   
   #contact a:hover {
     text-decoration: underline;
+    color: #b2f5b2;
+    border-color: rgba(178, 245, 178, 0.6);
+  }
+  #contact a:focus-visible {
+    outline: 2px dashed #2d6a3f;
+    outline-offset: 2px;
   }
   
   footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #f9f9f9;
+    text-align: left;
+    padding: 1rem 0 0.5rem;
+    background: transparent;
     margin-top: 2rem;
     font-size: 0.9rem;
-    color: #777;
+    color: #8eb89a;
+    border-top: 1px solid #1f2a2e;
+  }
+  
+  /* Terminal feel */
+  *::selection {
+    background: #214d2f;
+    color: #e6f5e6;
+  }
+  
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    background: #9ee493;
+    margin-left: 2px;
+    animation: blink 1s steps(1) infinite;
+    vertical-align: -0.2em;
+  }
+  
+  @keyframes blink {
+    50% { opacity: 0; }
   }
   
