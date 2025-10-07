@@ -74,7 +74,8 @@ body {
   
   header h1 {
     margin: 0 0 0.4rem;
-    font-size: 2rem;
+    font-size: clamp(1.1rem, 7.5vw, 2rem);
+    white-space: nowrap;
     color: #e6f5e6;
   }
   
