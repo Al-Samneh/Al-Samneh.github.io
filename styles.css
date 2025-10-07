@@ -7,6 +7,11 @@ body {
     background: #0b0f10;
   }
   
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  
   .terminal-window {
     max-width: 960px;
     margin: 0 auto;
